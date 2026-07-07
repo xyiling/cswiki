@@ -1,0 +1,66 @@
+site_name: "xyiling's cs notes" # 站点名称，显示于导航栏
+site_url: "https://xyiling.github.io/cswiki" # 部署后的域名
+site_description: 记录学习过程中遇到的问题和解决方法
+site_author: xyiling
+
+nav: # 导航栏菜单结构，层级与目录结构对应
+  - 首页: index.md
+  - 高级 Python: advanced-py.md
+
+theme:
+  name: material # 启用 Material 主题
+  features:
+    - navigation.tabs # 顶部标签页导航
+    - navigation.sections # 自动提取标题生成章节锚点
+  palette:
+    - scheme: default # 浅色模式
+    - scheme: slate # 暗黑模式（用户可切换）
+  language: 'zh'
+  tabs: false
+
+
+repo_name: 'xyiling/cswiki'
+repo_url: 'https://github.com/xyiling/cswiki'
+
+extra_css:
+  - styles/extra.css # 自定义CSS
+extra:
+  palette:
+    primary: 'Blue Grey'
+    accent: 'Pink'
+  social:
+    - type: github
+      link: https://github.com/xyiling
+  search:
+    language: 'jp'
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+      linenums: false
+  - toc:
+      permalink: true
+  - footnotes
+  - meta
+  - def_list
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_png
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist
+  - pymdownx.tilde
+
+extra_javascript:
+  - 'js/extra.js'
+  - 'js/baidu-tongji.js'
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
