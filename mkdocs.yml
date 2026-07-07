@@ -4,7 +4,7 @@ site_description: 记录学习过程中遇到的问题和解决方法
 site_author: xyiling
 
 nav: # 导航栏菜单结构，层级与目录结构对应
-  - 首页: index.md
+  - 首页: notes/index.md
   - Python进阶:
     - 偏函数: notes/py/partial-py.md
     - yield表达式: notes/py/yield-py.md
@@ -26,7 +26,7 @@ repo_name: 'xyiling/cswiki'
 repo_url: 'https://github.com/xyiling/cswiki'
 
 extra_css:
-  - styles/extra.css # 自定义CSS
+  - custom/styles/extra.css # 自定义CSS
 extra:
   palette:
     primary: 'Blue Grey'
@@ -63,5 +63,5 @@ markdown_extensions:
   - pymdownx.tilde
 
 extra_javascript:
-  - 'js/extra.js'
+  - 'custom/js/extra.js'
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
