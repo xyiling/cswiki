@@ -6,8 +6,10 @@ site_author: xyiling
 nav: # 导航栏菜单结构，层级与目录结构对应
   - 首页: index.md
   - Python进阶:
-    - 函数偏应用: partial-py.md
-    - yield表达式: yield-py.md
+    - 偏函数: notes/py/partial-py.md
+    - yield表达式: notes/py/yield-py.md
+  - rust笔记:
+    - 入门: notes/rust/入门rust.md
 theme:
   name: material # 启用 Material 主题
   features:

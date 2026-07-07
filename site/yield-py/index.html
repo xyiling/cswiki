@@ -12,10 +12,10 @@
         <meta name="author" content="xyiling">
       
       
-        <link rel="canonical" href="https://xyiling.github.io/cswiki/advanced-py/">
+        <link rel="canonical" href="https://xyiling.github.io/cswiki/yield-py/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../partial-py/">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>Python进阶 - xyiling's cs notes</title>
+        <title>yield表达式 - xyiling's cs notes</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#python" class="md-skip">
+        <a href="#yield" class="md-skip">
           跳转至
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Python进阶
+              yield表达式
             
           </span>
         </div>
@@ -237,17 +237,18 @@
     
   
   
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
-        
-  
-  
     
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../partial-py/" class="md-tabs__link">
+          
+  
   
   Python进阶
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -331,16 +332,28 @@
   
   
   
-    <li class="md-nav__item md-nav__item--active">
+    
+    
+    
+    
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+        
+        
       
       
         
       
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
           
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
   
   
   <span class="md-ellipsis">
@@ -354,8 +367,63 @@
   
   
 
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python进阶
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../partial-py/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    函数偏应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -364,7 +432,7 @@
   <span class="md-ellipsis">
     
   
-    Python进阶
+    yield表达式
   
 
     
@@ -374,35 +442,13 @@
 
       </a>
       
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. 偏函数
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -428,25 +474,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. 偏函数
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -465,19 +492,39 @@
   
 
 
-<h1 id="python">Python进阶<a class="headerlink" href="#python" title="Permanent link">&para;</a></h1>
-<h2 id="1">1. 偏函数<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p><code>functools.partial</code>函数：固定函数的参数，返回一个新的函数，默认从左到右</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
+<h1 id="yield">yield表达式<a class="headerlink" href="#yield" title="Permanent link">&para;</a></h1>
+<p>首先，可迭代对象、迭代器、生成器的概念</p>
+<blockquote>
+<p>可迭代对象，是其内部实现了，<strong>iter</strong> 这个魔术方法。<br />
+迭代器，内部多实现了一个__next__()方法，可以不再使用for循环来间断获取元素值。而可以直接使用next()方法来实现。<br />
+生成器，在迭代器的基础上，再实现了yield。 </p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterable</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">mod</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="n">y</span>
-<span class="n">mod_by_2</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># 固定第1个参数（x）为 2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mod_by_2</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># 2 % 10 = 2</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">flatten</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">ignore_types</span><span class="o">=</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)):</span>
+  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ignore_types</span><span class="p">):</span>
+      <span class="k">yield from</span> <span class="n">flatten</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">yield</span> <span class="n">x</span>
+<span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="c1"># 以下不同</span>
+<span class="n">tmp</span><span class="o">=</span><span class="n">flatten</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">flatten</span><span class="p">(</span><span class="n">items</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">flatten</span><span class="p">(</span><span class="n">items</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">flatten</span><span class="p">(</span><span class="n">items</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">flatten</span><span class="p">(</span><span class="n">items</span><span class="p">)))</span>
 
-<span class="n">mod_2</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 固定第2个参数（y）为 2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mod_2</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># 0</span>
+<span class="n">tmp</span><span class="o">=</span><span class="n">flatten</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">tmp</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">tmp</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">tmp</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">tmp</span><span class="p">))</span>
 </code></pre></div>
+<blockquote>
+<p>0 0 0 0</p>
+<p>0 1 2 3</p>
+</blockquote>
 
 
 
