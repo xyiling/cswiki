@@ -6,12 +6,12 @@
 }
 
 button.md-top {
-  font-family: 'fonts/MapleMonoNormalNL-Regular.ttf.woff2'; /* 修改字体 */
+  font-family: 'custom/fonts/MapleMonoNormalNL-Regular.ttf.woff2'; /* 修改字体 */
   font-size: 16px; /* 修改字体大小 */
   font-weight: lighter;/* 修改字体粗细 */
   color: #518FC1; /* 修改字体颜色 */
 }
 
 :root {
---md-text-font: 'fonts/MapleMonoNormalNL-Regular.ttf.woff2'; 
+--md-text-font: 'custom/fonts/MapleMonoNormalNL-Regular.ttf.woff2'; 
 } /* 字体 */
