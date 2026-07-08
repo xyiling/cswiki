@@ -57,6 +57,66 @@ print(next(tmp))
 print(next(tmp))
 ```
 
-> 0 0 0 0
+> - 0 0 0 0
+> - 0 1 2 3
 
-> 0 1 2 3
+yield表达式，实际执行是”时序”型的，一个“时钟”就是一个next(or send),每走一步，return之后，等待,等别人通过next(or send)，叫醒自己继续走.
+
+当读取一个巨大的文本文件，如超过10w行数据，可以每次读取一行，而不是一次读取所有数据，这样可以节省内存空间。
+
+每次的yield，都会暂停当前函数的执行，yield如果后面跟了一个值，则会返回这个值，如果没有跟值，则会返回None。
+这个值的获取方法：next()方法，具体如上代码所示。
+
+yield支持通过send()方法，来向生成器发送值。
+如：
+```python
+def test():
+  x = yield 1
+  print('收到了外部的值', x)
+  yield x*2
+
+tmp = test()
+print(next(tmp))   # 1
+print(tmp.send(2)) # 4
+```
+
+> 1  
+> 收到了外部的值 2  
+> 4
+
+
+### yield from
+```python
+# 字符串
+astr='ABC'
+# 列表
+alist=[1,2,3]
+# 字典
+adict={"name":"wangbm","age":18}
+# 生成器
+agen=(i for i in range(4,8))
+
+def gen(*args, **kw):
+    for item in args:
+        # yield 方法
+        for i in item:
+            yield i
+        # yield from方法
+        # yield from item
+
+new_list=gen(astr, alist, adict， agen)
+print(list(new_list))
+# ['A', 'B', 'C', 1, 2, 3, 'name', 'age', 4, 5, 6, 7]
+# 也可以这样生成一个生成器
+f = gen(astr, alist, adict， agen)
+# 那每一次调用next(f)，就会返回一个元素
+print(next(f))
+```
+
+简单来说，`yield from`等价于for循环
+```python
+for i in item:
+    yield i
+```
+即，省去了显式的迭代逻辑
+
