@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://xyiling.github.io/cswiki/</loc>
+         <loc>https://xyiling.github.io/cswiki/notes/</loc>
          <lastmod>2026-07-07</lastmod>
     </url>
     <url>
-         <loc>https://xyiling.github.io/cswiki/partial-py/</loc>
+         <loc>https://xyiling.github.io/cswiki/notes/py/partial-py/</loc>
          <lastmod>2026-07-07</lastmod>
     </url>
     <url>
-         <loc>https://xyiling.github.io/cswiki/yield-py/</loc>
+         <loc>https://xyiling.github.io/cswiki/notes/py/yield-py/</loc>
+         <lastmod>2026-07-07</lastmod>
+    </url>
+    <url>
+         <loc>https://xyiling.github.io/cswiki/notes/rust/%E5%85%A5%E9%97%A8rust/</loc>
          <lastmod>2026-07-07</lastmod>
     </url>
 </urlset>

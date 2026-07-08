@@ -3,15 +3,9 @@ site_url: "https://xyiling.github.io/cswiki" # 部署后的域名
 site_description: 记录学习过程中遇到的问题和解决方法
 site_author: xyiling
 
-nav: # 导航栏菜单结构，层级与目录结构对应
-  - 首页: notes/index.md
-  - Python进阶:
-    - 偏函数: notes/py/partial-py.md
-    - yield表达式: notes/py/yield-py.md
-  - rust笔记:
-    - 入门: notes/rust/入门rust.md
 theme:
   name: material # 启用 Material 主题
+  custom_dir: docs/custom/overrides
   features:
     - navigation.tabs # 顶部标签页导航
     - navigation.sections # 自动提取标题生成章节锚点
@@ -27,6 +21,7 @@ repo_url: 'https://github.com/xyiling/cswiki'
 
 extra_css:
   - custom/styles/extra.css # 自定义CSS
+  - custom/styles/custom.css # 自定义CSS
 extra:
   palette:
     primary: 'Blue Grey'
@@ -65,3 +60,39 @@ markdown_extensions:
 extra_javascript:
   - 'custom/js/extra.js'
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
+
+nav: # 导航栏菜单结构，层级与目录结构对应
+  - 首页:
+    - 前言: index.md
+    - 灵感: inspiration.md
+    - 归档: archive.md
+    - 日常: daily.md
+  - 工具合集:
+    - 工具网站: tools/websites.md
+    - 导航网址: tools/navigation.md 
+  - 项目管理:
+    - 项目笔记: projects/index.md
+    - 待办事项: projects/todo.md
+  - 技术沉淀:
+    - 纵览: notes/coding.md
+    - python技术笔记: notes/python技术笔记.md
+    - rust技术笔记: notes/rust技术笔记.md
+    - cxx技术笔记: notes/cxx技术笔记.md
+    - go语言学习笔记: notes/go语言学习笔记.md
+    - java学习笔记: notes/java学习笔记.md
+    - vue学习笔记: notes/vue学习笔记.md
+    - react学习笔记: notes/react学习笔记.md
+    - css学习笔记: notes/css学习笔记.md
+    - 算法学习笔记: notes/algorithms.md
+    - 数据库学习笔记: notes/database.md
+
+  - 读书笔记:
+    - 纵览: books/reading.md
+    - 理想国: books/理想国.md
+  - 课程笔记:
+    - 纵览: books/courses.md
+    - jyyOS: books/jyyOS课程笔记.md
+    - hitOS: books/hitOS课程笔记.md
+    - hit体系结构: books/hit体系结构课程笔记.md
+
