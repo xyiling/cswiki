@@ -86,6 +86,8 @@ nav: # 导航栏菜单结构，层级与目录结构对应
     - css学习笔记: notes/css学习笔记.md
     - 算法学习笔记: notes/algorithms.md
     - 数据库学习笔记: notes/database.md
+    - shell学习笔记: notes/shell笔记.md
+    - 并发编程笔记: notes/并发编程.md
 
   - 读书笔记:
     - 纵览: books/reading.md
