@@ -1,2 +1,0 @@
-- cmu 15445: database system
-- cmu 15721: advanced database system

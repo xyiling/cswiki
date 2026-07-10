@@ -11,7 +11,13 @@ theme:
     - navigation.sections # 自动提取标题生成章节锚点
   palette:
     - scheme: default # 浅色模式
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
     - scheme: slate # 暗黑模式（用户可切换）
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
   language: 'zh'
   tabs: false
 
@@ -54,6 +60,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true # 推荐开启，对移动端排版更友好
   - pymdownx.tasklist
   - pymdownx.tilde
 
@@ -75,7 +83,6 @@ nav: # 导航栏菜单结构，层级与目录结构对应
     - 项目笔记: projects/index.md
     - 待办事项: projects/todo.md
   - 技术沉淀:
-    - 纵览: notes/coding.md
     - python技术笔记: notes/python技术笔记.md
     - rust技术笔记: notes/rust技术笔记.md
     - cxx技术笔记: notes/cxx技术笔记.md
@@ -88,13 +95,12 @@ nav: # 导航栏菜单结构，层级与目录结构对应
     - 数据库学习笔记: notes/database.md
     - shell学习笔记: notes/shell笔记.md
     - 并发编程笔记: notes/并发编程.md
+    - pandas学习笔记: notes/pandas笔记.md
 
   - 读书笔记:
-    - 纵览: books/reading.md
     - 理想国: books/理想国.md
   - 课程笔记:
-    - 纵览: books/courses.md
-    - jyyOS: books/jyyOS课程笔记.md
-    - hitOS: books/hitOS课程笔记.md
-    - hit体系结构: books/hit体系结构课程笔记.md
+    - jyyOS: courses/jyyOS课程笔记.md
+    - hitOS: courses/hitOS课程笔记.md
+    - hit体系结构: courses/hit体系结构课程笔记.md
 
