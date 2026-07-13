@@ -1528,6 +1528,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../courses/cmu数据库系统.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cmu数据库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../courses/cmu高级数据库系统.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cmu高级数据库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1729,8 +1785,6 @@
     <div class="highlight"><pre><span></span><code><span class="c1"># 查找指定进程</span>
 ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;进程名&quot;</span>
 </code></pre></div></p>
-</li>
-</ol>
 <blockquote>
 <p>ps的参数：</p>
 <ol>
@@ -1756,6 +1810,46 @@ ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><sp
 </li>
 </ol>
 </blockquote>
+</li>
+<li>
+<p>使用tar命令压缩文件<br />
+    使用<code>--exclude=dir_name</code>，排除所有目录下的<code>__pycache__</code>目录</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>base<span class="o">)</span><span class="w"> </span>xyl@arch<span class="w"> </span>~<span class="w"> </span>%<span class="w"> </span>tar<span class="w"> </span>--exclude<span class="o">=</span>__pycache__<span class="w"> </span>-czvf<span class="w"> </span>test.tar.gz<span class="w"> </span><span class="nb">test</span>
+<span class="c1"># a test</span>
+<span class="c1"># a test/init</span>
+<span class="c1"># a test/mm</span>
+<span class="c1"># a test/process</span>
+<span class="o">(</span>base<span class="o">)</span><span class="w"> </span>xyl@arch<span class="w"> </span>~<span class="w"> </span>%<span class="w"> </span>tree<span class="w"> </span><span class="nb">test</span>
+<span class="c1"># test</span>
+<span class="c1"># ├── __pycache__</span>
+<span class="c1"># ├── init</span>
+<span class="c1"># │   └── __pycache__</span>
+<span class="c1"># ├── mm</span>
+<span class="c1"># │   └── __pycache__</span>
+<span class="c1"># └── process</span>
+<span class="c1">#     └── __pycache__</span>
+<span class="c1"># 8 directories, 0 files</span>
+</code></pre></div>
+</li>
+<li>
+<p><code>awk</code>、<code>sed</code>、<code>grep</code>三剑客<br />
+    使用<code>awk</code>对纯文本文件进行格式化处理
+    <div class="highlight"><pre><span></span><code><span class="c1"># 读取test.csv文件，使用&quot;,&quot;作为分隔符，打印第一列、第二列、第三列的内容</span>
+awk<span class="w"> </span>-F<span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="s1">&#39;{print $1, $2, $3}&#39;</span><span class="w"> </span>test.csv
+</code></pre></div></p>
+<p>使用<code>sed -g</code>对纯文本文件进行全局替换
+<div class="highlight"><pre><span></span><code><span class="c1"># 读取`test.txt`文件，将所有&quot;hello&quot;替换为&quot;world&quot;</span>
+sed<span class="w"> </span>-g<span class="w"> </span><span class="s1">&#39;s/hello/world/g&#39;</span><span class="w"> </span>test.txt
+
+<span class="c1"># 添加-i参数，直接修改文件内容</span>
+sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/hello/world/g&#39;</span><span class="w"> </span>test.txt
+</code></pre></div></p>
+<p>使用<code>grep</code>对纯文本文件进行搜索
+<div class="highlight"><pre><span></span><code><span class="c1"># 读取`test.txt`文件，搜索所有包含&quot;hello&quot;的行</span>
+grep<span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="w"> </span>test.txt
+</code></pre></div></p>
+</li>
+</ol>
 
 
 
