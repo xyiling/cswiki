@@ -19,4 +19,6 @@
 ### 2. 懒加载
 ### 3. 缓存
 ### 4. 压缩
+
 ### 5. 骨架屏
+可以直接使用ui框架提供的骨架屏组件，如el-skeleton，antd的skeleton、shadcn也提供了skeleton组件

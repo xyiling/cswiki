@@ -113,20 +113,63 @@ done
     ps aux | grep "进程名"
     ```
 
-> ps的参数：
+    > ps的参数：
 
->  1. 进程选择
->     - -e / -A：显示所有进程。
->     - -a：显示所有终端上的进程（不包含会话领导者）。
->     - -u：显示指定用户的进程（常与 -u root 或 -u $USER 组合）。
->     - -p：显示指定 PID
->     - -t：显示与指定 TTY（终端）关联的进程。
->  2. 输出格式
->     - -f：显示完整格式（包含 UID, PID, PPID, C, STIME, TTY, TIME, CMD）。
->     - -l：显示长格式（包含更多技术细节，如优先级、F 标志等）。
->     - -j：显示与作业（Jobs）相关的格式。
->     - -o：自定义输出列（例如 ps -o pid,comm 只显示 PID 和命令名称）。
->  3. 其他辅助功能
->     - -L：显示进程关联的线程（LWP 和 NLWP）。
->     - -C：通过命令名称来过滤选择进程（例如 -C bash）
+    >  1. 进程选择
+    >     - -e / -A：显示所有进程。
+    >     - -a：显示所有终端上的进程（不包含会话领导者）。
+    >     - -u：显示指定用户的进程（常与 -u root 或 -u $USER 组合）。
+    >     - -p：显示指定 PID
+    >     - -t：显示与指定 TTY（终端）关联的进程。
+    >  2. 输出格式
+    >     - -f：显示完整格式（包含 UID, PID, PPID, C, STIME, TTY, TIME, CMD）。
+    >     - -l：显示长格式（包含更多技术细节，如优先级、F 标志等）。
+    >     - -j：显示与作业（Jobs）相关的格式。
+    >     - -o：自定义输出列（例如 ps -o pid,comm 只显示 PID 和命令名称）。
+    >  3. 其他辅助功能
+    >     - -L：显示进程关联的线程（LWP 和 NLWP）。
+    >     - -C：通过命令名称来过滤选择进程（例如 -C bash）
 
+
+4. 使用tar命令压缩文件  
+    使用`--exclude=dir_name`，排除所有目录下的`__pycache__`目录
+
+    ```bash
+    (base) xyl@arch ~ % tar --exclude=__pycache__ -czvf test.tar.gz test
+    # a test
+    # a test/init
+    # a test/mm
+    # a test/process
+    (base) xyl@arch ~ % tree test
+    # test
+    # ├── __pycache__
+    # ├── init
+    # │   └── __pycache__
+    # ├── mm
+    # │   └── __pycache__
+    # └── process
+    #     └── __pycache__
+    # 8 directories, 0 files
+    ```
+
+5. `awk`、`sed`、`grep`三剑客  
+    使用`awk`对纯文本文件进行格式化处理
+    ```bash
+    # 读取test.csv文件，使用","作为分隔符，打印第一列、第二列、第三列的内容
+    awk -F"," '{print $1, $2, $3}' test.csv
+    ```
+
+    使用`sed -g`对纯文本文件进行全局替换
+    ```bash
+    # 读取`test.txt`文件，将所有"hello"替换为"world"
+    sed -g 's/hello/world/g' test.txt
+
+    # 添加-i参数，直接修改文件内容
+    sed -i 's/hello/world/g' test.txt
+    ```
+
+    使用`grep`对纯文本文件进行搜索
+    ```bash
+    # 读取`test.txt`文件，搜索所有包含"hello"的行
+    grep "hello" test.txt
+    ```
