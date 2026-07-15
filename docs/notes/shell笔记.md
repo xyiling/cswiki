@@ -113,6 +113,16 @@ done
     ps aux | grep "进程名"
     ```
 
+    !!! note
+        `ps aux`更倾向于显示进程占用的资源信息
+        ```bash title="ps aux" 
+        USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND  
+        ```
+        `ps -ef`显示父子进程关系
+        ```bash title="ps -ef" 
+        UID        PID  PPID  C STIME TTY          TIME CMD
+        ```
+
     > ps的参数：
 
     >  1. 进程选择
