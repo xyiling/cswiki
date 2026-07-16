@@ -949,6 +949,89 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基础语法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基础语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件读写
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        读取行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        封装Result
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        子进程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管道
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1594,6 +1677,89 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基础语法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基础语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件读写
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        读取行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        封装Result
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        子进程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管道
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1618,6 +1784,21 @@
 
 <h2 id="rust">入门 rust<a class="headerlink" href="#rust" title="Permanent link">&para;</a></h2>
 <ol>
+<li>使用let声明变量，rust会自动判断类型</li>
+<li>使用const或static，需要显式指定类型，右值必须是编译期常量或者常量表达式</li>
+<li>
+<p>if let简化match语法
+    <div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="p">:</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="kt">str</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Ok</span><span class="p">(</span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;ok&quot;</span><span class="p">));</span>
+<span class="c1">// 只关心正确执行后的结果</span>
+<span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Ok</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">{</span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)}</span>
+<span class="c1">// 或者使用下面的4行</span>
+<span class="k">match</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nb">Err</span><span class="p">(</span><span class="n">why</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">panic!</span><span class="p">(</span><span class="s">&quot;error: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">why</span><span class="p">),</span>
+<span class="w">  </span><span class="nb">Ok</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;ok: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ok</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="p">:</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="kt">str</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Ok</span><span class="p">(</span><span class="nb">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;ok&quot;</span><span class="p">));</span>
+</code></pre></div></p>
+</li>
 <li>
 <p>变量可变性mut</p>
 <ul>
@@ -1657,6 +1838,164 @@
 </ul>
 </li>
 </ol>
+<h2 id="_1">基础语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">PI</span><span class="p">:</span><span class="w"> </span><span class="kt">f64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.141592653589</span><span class="p">;</span><span class="w"> </span><span class="c1">// 编译期确定的值</span>
+<span class="k">static</span><span class="w"> </span><span class="n">NAME</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;xyiling&quot;</span><span class="p">;</span><span class="w">   </span><span class="c1">//  全局唯一值</span>
+<span class="c1">// String::from()与&quot;str&quot;.to_string()是在运行期确定的</span>
+<span class="c1">// const PLATRORM: String = String::from(&quot;Macbook Pro&quot;); // error, String::from()是在运行时确定值</span>
+<span class="c1">// const PLATFORM: String = &quot;MacbookPro&quot;.to_string();    // to_string()同理</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">platform</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;MacbookPro&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">();</span>
+<span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">platform</span><span class="p">);</span>
+<span class="c1">// 常量表达式</span>
+<span class="k">const</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="n">v</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">u32</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span>
+<span class="p">}</span>
+<span class="k">const</span><span class="w"> </span><span class="n">RESULT</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="fm">println!</span><span class="p">(</span><span class="s">&quot;RESULT = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">RESULT</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="_2">文件读写<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 文件操作往往都伴随错误产生，因此rust对文件的操作结果都使用Result&lt;T&gt;表示</span>
+
+<span class="c1">// jupyter 会将上一个cell的内容传递到下一个cell，因此会在内部维护一些变量或相关信息</span>
+<span class="c1">// 一些变量就会变成unused，但是rust默认对未使用的变量进行严格管控，存在则直接报错</span>
+<span class="c1">// 禁用unused检查</span>
+<span class="cp">#![allow(unused_variables)]</span><span class="w"> </span>
+
+<span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">fs</span><span class="p">::</span><span class="n">File</span><span class="p">;</span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">io</span><span class="p">::</span><span class="n">prelude</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">path</span><span class="p">::</span><span class="n">Path</span><span class="p">;</span>
+<span class="c1">// 打开文件</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">&quot;genshin.txt&quot;</span><span class="p">);</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">path</span><span class="p">.</span><span class="n">display</span><span class="p">();</span><span class="w"> </span><span class="c1">// </span>
+
+<span class="c1">// 以只读模式打开文件</span>
+<span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">file</span><span class="p">:</span><span class="nc">File</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">File</span><span class="p">::</span><span class="n">open</span><span class="p">(</span><span class="o">&amp;</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nb">Err</span><span class="p">(</span><span class="n">why</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">panic!</span><span class="p">(</span><span class="s">&quot;文件打开失败：{}, {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">display</span><span class="p">,</span><span class="w"> </span><span class="n">why</span><span class="p">),</span>
+<span class="w">  </span><span class="nb">Ok</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">file</span><span class="p">,</span>
+<span class="p">};</span>
+<span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
+<span class="k">match</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="n">read_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nb">Err</span><span class="p">(</span><span class="n">why</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">panic!</span><span class="p">(</span><span class="s">&quot;无法读取文件{}: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">display</span><span class="p">,</span><span class="w"> </span><span class="n">why</span><span class="p">),</span>
+<span class="w">  </span><span class="nb">Ok</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">print!</span><span class="p">(</span><span class="s">&quot;{} contains: </span><span class="se">\n</span><span class="s">{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">display</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">),</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_3">创建文件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">fs</span><span class="p">::</span><span class="n">File</span><span class="p">;</span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">io</span><span class="p">::</span><span class="n">prelude</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">path</span><span class="p">::</span><span class="n">Path</span><span class="p">;</span>
+
+<span class="k">static</span><span class="w"> </span><span class="err">钟离命座</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="o">&#39;</span><span class="nb">static</span><span class="w"> </span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;岩者 六合引之为骨</span><span class="se">\n</span><span class="s">石者 八荒韫玉而明</span><span class="se">\n</span><span class="s">珪璋 暝仍不移其晖</span><span class="se">\n</span><span class="s">黄琮 破而不夺其坚</span><span class="se">\n</span><span class="s">苍璧 驱之长昭天理</span><span class="se">\n</span><span class="s">金玉 礼予天地四方&quot;</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">&quot;out/a.txt&quot;</span><span class="p">);</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">path</span><span class="p">.</span><span class="n">display</span><span class="p">();</span>
+<span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">file</span><span class="p">:</span><span class="w"> </span><span class="nc">File</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">File</span><span class="p">::</span><span class="n">create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nb">Err</span><span class="p">(</span><span class="n">why</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">panic!</span><span class="p">(</span><span class="s">&quot;cannot create file {}, {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">display</span><span class="p">,</span><span class="w"> </span><span class="n">why</span><span class="p">),</span>
+<span class="w">  </span><span class="nb">Ok</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">file</span>
+<span class="p">};</span>
+
+<span class="k">match</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="n">write_all</span><span class="p">(</span><span class="err">钟离命座</span><span class="p">.</span><span class="n">as_bytes</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nb">Err</span><span class="p">(</span><span class="n">why</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="fm">panic!</span><span class="p">(</span><span class="s">&quot;写入{}失败，{:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">display</span><span class="p">,</span><span class="w"> </span><span class="n">why</span><span class="p">)</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nb">Ok</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;写入{}成功&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">display</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="_4">读取行<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">fs</span><span class="p">::</span><span class="n">File</span><span class="p">;</span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">io</span><span class="p">::{</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">BufRead</span><span class="p">};</span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">path</span><span class="p">::</span><span class="n">Path</span><span class="p">;</span>
+
+
+<span class="k">fn</span><span class="w"> </span><span class="nf">read_lines</span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span><span class="w"> </span><span class="nc">P</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">io</span><span class="p">::</span><span class="nb">Result</span><span class="o">&lt;</span><span class="n">io</span><span class="p">::</span><span class="n">Lines</span><span class="o">&lt;</span><span class="n">io</span><span class="p">::</span><span class="n">BufReader</span><span class="o">&lt;</span><span class="n">File</span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span>
+<span class="k">where</span><span class="w"> </span><span class="n">P</span><span class="p">:</span><span class="w"> </span><span class="nb">AsRef</span><span class="o">&lt;</span><span class="n">Path</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="p">::</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
+<span class="w">  </span><span class="nb">Ok</span><span class="p">(</span><span class="n">io</span><span class="p">::</span><span class="n">BufReader</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="n">file</span><span class="p">).</span><span class="n">lines</span><span class="p">())</span>
+<span class="p">}</span>
+
+<span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Ok</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_lines</span><span class="p">(</span><span class="s">&quot;out/a.txt&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 使用迭代器，返回一个可选的字符串</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Ok</span><span class="p">(</span><span class="n">info</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="result">封装Result<a class="headerlink" href="#result" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 封装Result</span>
+<span class="c1">// 使用#[derive(Debug)]，支持{:?}输出内容，否则需要实现Display trait才能被println</span>
+<span class="cp">#[derive(Debug)]</span>
+<span class="k">enum</span><span class="w"> </span><span class="nc">MathError</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">DivisionByZero</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="kt">f64</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="kt">f64</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="kt">f64</span><span class="p">,</span><span class="w"> </span><span class="n">MathError</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nb">Err</span><span class="p">(</span><span class="n">MathError</span><span class="p">::</span><span class="n">DivisionByZero</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nb">Ok</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="p">:</span><span class="w"> </span><span class="kt">f64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">divide</span><span class="p">(</span><span class="mf">5.0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 要求有返回值，因此需要使用panic替代println，因为panic会直接停止程序</span>
+<span class="w">  </span><span class="nb">Err</span><span class="p">(</span><span class="n">why</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">panic!</span><span class="p">(</span><span class="s">&quot;divide error: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">why</span><span class="p">),</span>
+<span class="w">  </span><span class="nb">Ok</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">result</span>
+<span class="p">};</span>
+
+<span class="fm">println!</span><span class="p">(</span><span class="s">&quot;result = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<span class="c1">// 输出：result = 2.5</span>
+</code></pre></div>
+<h3 id="_5">子进程<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>process::Output 结构体表示已结束的子进程（child process）的输出
+process::Command 结构体是一个进程创建者（process builder）
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">process</span><span class="p">::</span><span class="n">Command</span><span class="p">;</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="nf">show_version</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Command</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">&quot;rustc&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">arg</span><span class="p">(</span><span class="s">&quot;--version&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">output</span><span class="p">().</span><span class="n">unwrap_or_else</span><span class="p">(</span><span class="o">|</span><span class="n">e</span><span class="o">|</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="fm">panic!</span><span class="p">(</span><span class="s">&quot;failed to exec proc: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="n">status</span><span class="p">.</span><span class="n">success</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">from_utf8_lossy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">output</span><span class="p">.</span><span class="n">stdout</span><span class="p">);</span>
+<span class="w">    </span><span class="fm">print!</span><span class="p">(</span><span class="s">&quot;rustc succeeded and stdout was: </span><span class="se">\n</span><span class="s">{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">from_utf8_lossy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">output</span><span class="p">.</span><span class="n">stderr</span><span class="p">);</span>
+<span class="w">    </span><span class="fm">print!</span><span class="p">(</span><span class="s">&quot;rustc failed and stderr was:</span><span class="se">\n</span><span class="s">{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">show_version</span><span class="p">()</span>
+</code></pre></div></p>
+<h3 id="_6">管道<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">io</span><span class="p">::</span><span class="n">prelude</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">process</span><span class="p">::{</span><span class="n">Command</span><span class="p">,</span><span class="w"> </span><span class="n">Stdio</span><span class="p">};</span>
+
+<span class="k">static</span><span class="w"> </span><span class="n">PANGRAM</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="o">&#39;</span><span class="nb">static</span><span class="w"> </span><span class="kt">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;金玉 礼予天地四方</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="nf">pipe_test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 使用wc命令计算字符数</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="n">Command</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">&quot;wc&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">stdin</span><span class="p">(</span><span class="n">Stdio</span><span class="p">::</span><span class="n">piped</span><span class="p">())</span>
+<span class="w">    </span><span class="p">.</span><span class="n">stdout</span><span class="p">(</span><span class="n">Stdio</span><span class="p">::</span><span class="n">piped</span><span class="p">())</span>
+<span class="w">    </span><span class="p">.</span><span class="n">spawn</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nb">Err</span><span class="p">(</span><span class="n">why</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">panic!</span><span class="p">(</span><span class="s">&quot;couldn&#39;t spawn wc: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">why</span><span class="p">),</span>
+<span class="w">      </span><span class="nb">Ok</span><span class="p">(</span><span class="n">process</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">process</span><span class="p">,</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">  </span><span class="c1">// 将字符串写入wc进程的stdin</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">process</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">unwrap</span><span class="p">().</span><span class="n">write_all</span><span class="p">(</span><span class="n">PANGRAM</span><span class="p">.</span><span class="n">as_bytes</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">Err</span><span class="p">(</span><span class="n">why</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">panic!</span><span class="p">(</span><span class="s">&quot;写入到wc的标准输入失败, {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">why</span><span class="p">),</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;成功将文本输入到wc&quot;</span><span class="p">),</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
+<span class="w">  </span><span class="k">match</span><span class="w"> </span><span class="n">process</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="n">unwrap</span><span class="p">().</span><span class="n">read_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">Err</span><span class="p">(</span><span class="n">why</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">panic!</span><span class="p">(</span><span class="s">&quot;读取wc输出失败, {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">why</span><span class="p">),</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">print!</span><span class="p">(</span><span class="s">&quot;字符个数: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">),</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">pipe_test</span><span class="p">()</span>
+</code></pre></div>
 
 
 
