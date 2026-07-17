@@ -1466,6 +1466,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker%E9%83%A8%E7%BD%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    docker部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2018,8 +2046,21 @@
 
 <h2 id="_1">垃圾回收<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="_2">垃圾标记算法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>可达性分析</li>
+<li>三色标记法</li>
+</ol>
 <h3 id="_3">垃圾回收算法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ol>
+<li>分代收集</li>
+<li>压缩收集</li>
+<li>并发收集</li>
+<li>并发标记-复制</li>
+<li>并发标记-整理</li>
+</ol>
 <h3 id="stw">关于STW<a class="headerlink" href="#stw" title="Permanent link">&para;</a></h3>
+<p>全称Stop The World，即在垃圾回收过程中，虚拟机所有线程都必须暂停，等待垃圾回收完成<br />
+不同的垃圾回收器对STW的处理不同，有的是全暂停，有的是部分暂停，有的是不暂停</p>
 <h2 id="_4">内存布局<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="_5">虚拟机方法栈<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <h3 id="_6">本地方法栈<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>

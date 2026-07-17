@@ -965,7 +965,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文件读写
+        枚举常量
       
     </span>
   </a>
@@ -976,7 +976,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        创建文件
+        文件读写
       
     </span>
   </a>
@@ -985,6 +985,17 @@
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         读取行
@@ -1006,7 +1017,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         子进程
@@ -1014,13 +1025,41 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="子进程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用wait等待子进程结束
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         管道
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unwrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        unwrap语法
       
     </span>
   </a>
@@ -1336,6 +1375,34 @@
     
   
     pandas学习笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker%E9%83%A8%E7%BD%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    docker部署
   
 
     
@@ -1693,7 +1760,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文件读写
+        枚举常量
       
     </span>
   </a>
@@ -1704,7 +1771,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        创建文件
+        文件读写
       
     </span>
   </a>
@@ -1713,6 +1780,17 @@
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         读取行
@@ -1734,7 +1812,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         子进程
@@ -1742,13 +1820,41 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="子进程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用wait等待子进程结束
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         管道
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unwrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        unwrap语法
       
     </span>
   </a>
@@ -1853,7 +1959,24 @@
 <span class="k">const</span><span class="w"> </span><span class="n">RESULT</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="fm">println!</span><span class="p">(</span><span class="s">&quot;RESULT = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">RESULT</span><span class="p">);</span>
 </code></pre></div>
-<h3 id="_2">文件读写<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_2">枚举常量<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>枚举基础语法如下
+<div class="highlight"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="nc">MyError</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">NetworkTimeout</span><span class="p">,</span>
+<span class="w">    </span><span class="n">DatabaseClick</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>通过MyError::NetworkTimeout等枚举常量，可以创建或访问对应的错误实例。
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">res</span><span class="p">:</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">MyError</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="n">MyError</span><span class="p">::</span><span class="n">NetworkTimeout</span><span class="p">);</span>
+<span class="n">res</span><span class="p">.</span><span class="n">unwrap_or_else</span><span class="p">(</span><span class="o">|</span><span class="n">e</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 这里的 e 是 MyError 枚举</span>
+<span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">MyError</span><span class="p">::</span><span class="n">NetworkTimeout</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;网络超时&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">MyError</span><span class="p">::</span><span class="n">DatabaseClick</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;数据库故障&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="o">-</span><span class="mi">1</span>
+<span class="p">});</span>
+</code></pre></div></p>
+<h3 id="_3">文件读写<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">// 文件操作往往都伴随错误产生，因此rust对文件的操作结果都使用Result&lt;T&gt;表示</span>
 
 <span class="c1">// jupyter 会将上一个cell的内容传递到下一个cell，因此会在内部维护一些变量或相关信息</span>
@@ -1879,7 +2002,7 @@
 <span class="w">  </span><span class="nb">Ok</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">print!</span><span class="p">(</span><span class="s">&quot;{} contains: </span><span class="se">\n</span><span class="s">{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">display</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">),</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_3">创建文件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_4">创建文件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">fs</span><span class="p">::</span><span class="n">File</span><span class="p">;</span>
 <span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">io</span><span class="p">::</span><span class="n">prelude</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
 <span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">path</span><span class="p">::</span><span class="n">Path</span><span class="p">;</span>
@@ -1899,7 +2022,7 @@
 <span class="w">  </span><span class="nb">Ok</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;写入{}成功&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">display</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_4">读取行<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_5">读取行<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">fs</span><span class="p">::</span><span class="n">File</span><span class="p">;</span>
 <span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">io</span><span class="p">::{</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">BufRead</span><span class="p">};</span>
 <span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">path</span><span class="p">::</span><span class="n">Path</span><span class="p">;</span>
@@ -1945,7 +2068,7 @@
 <span class="fm">println!</span><span class="p">(</span><span class="s">&quot;result = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
 <span class="c1">// 输出：result = 2.5</span>
 </code></pre></div>
-<h3 id="_5">子进程<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_6">子进程<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>process::Output 结构体表示已结束的子进程（child process）的输出
 process::Command 结构体是一个进程创建者（process builder）
 <div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">process</span><span class="p">::</span><span class="n">Command</span><span class="p">;</span>
@@ -1967,7 +2090,24 @@ process::Command 结构体是一个进程创建者（process builder）
 <span class="p">}</span>
 <span class="n">show_version</span><span class="p">()</span>
 </code></pre></div></p>
-<h3 id="_6">管道<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h4 id="wait">使用wait等待子进程结束<a class="headerlink" href="#wait" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// 等待子进程完成</span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">process</span><span class="p">::</span><span class="n">Command</span><span class="p">;</span>
+
+<span class="k">fn</span><span class="w"> </span><span class="nf">test_wait</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 使用Command::new()创建子进程，并通过arg传递参数</span>
+<span class="w">  </span><span class="c1">// 使用spawn</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Command</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s">&quot;sleep&quot;</span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="s">&quot;5&quot;</span><span class="p">).</span><span class="n">spawn</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="n">_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">child</span><span class="p">.</span><span class="n">wait</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span>
+
+<span class="w">  </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;子进程运行结束&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">test_wait</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="_7">管道<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>管道配合子进程，实现进程之间的通信和数据交换<br />
+这个实例使用wc命令计算字符数，通过管道将文本传递给wc进程，直接得出结果
 <div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">io</span><span class="p">::</span><span class="n">prelude</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
 <span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">process</span><span class="p">::{</span><span class="n">Command</span><span class="p">,</span><span class="w"> </span><span class="n">Stdio</span><span class="p">};</span>
 
@@ -1995,7 +2135,39 @@ process::Command 结构体是一个进程创建者（process builder）
 <span class="p">}</span>
 
 <span class="n">pipe_test</span><span class="p">()</span>
-</code></pre></div>
+</code></pre></div></p>
+<h3 id="unwrap">unwrap语法<a class="headerlink" href="#unwrap" title="Permanent link">&para;</a></h3>
+<p>在 Rust 中，unwrap() 是一个方法。它可以被调用在包含潜在错误或缺失值的两种主要类型上：Result 和 Option。</p>
+<ol>
+<li>作用于 Result<T, E><br />
+  如果成功（是 Ok）：它会返回剥去外壳后的真实数据，类型为 T。<br />
+  如果失败（是 Err）：程序会直接引发 panic（崩溃）并退出。</li>
+<li>作用于 Option<T><br />
+  如果有值（是 Some）：它会返回剥去外壳后的真实数据，类型为 T。<br />
+  如果为空（是 None）：程序同样会直接引发 panic（崩溃）并退出。 </li>
+</ol>
+<p>使用unwrap_or_else()方法，可以在Option为空时提供一个默认值
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">s_or_default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">unwrap_or_else</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">);</span>
+</code></pre></div></p>
+<p>对Result的Err也支持unwrap_or_else()方法
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="n">error_result</span><span class="p">:</span><span class="w"> </span><span class="nb">Result</span><span class="o">&lt;</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="kt">str</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Err</span><span class="p">(</span><span class="s">&quot;无效的输入&quot;</span><span class="p">);</span>
+<span class="c1">// 如果是 Err，不会崩溃，而是执行闭包返回 18</span>
+<span class="kd">let</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">error_result</span><span class="p">.</span><span class="n">unwrap_or_else</span><span class="p">(</span><span class="o">|</span><span class="n">err</span><span class="o">|</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;发生错误: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">err</span><span class="p">);</span>
+<span class="w">    </span><span class="mi">18</span><span class="w"> </span>
+<span class="p">});</span>
+<span class="fm">assert_eq!</span><span class="p">(</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">);</span><span class="w"> </span><span class="c1">// 程序正常运行</span>
+</code></pre></div></p>
+<blockquote>
+<p>unwrap_or_else(|err| 1+1)与unwrap_or(1+1)的区别<br />
+前者只在错误时执行1+1，成功时返回Ok的值，也就是懒加载的一种<br />
+后者会直接执行1+1，错误时返回1+1的值</p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>|err|是Result&lt;String, &amp;str&gt;的&amp;str实例，可以访问str.to_string()等方法，如果错误类型是其他类型，比如自定义的结构体，或者是u8或其他，都可以访问对应类型的方法。</p>
+</div>
 
 
 

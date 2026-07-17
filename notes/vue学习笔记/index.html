@@ -1470,6 +1470,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker%E9%83%A8%E7%BD%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    docker部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2023,8 +2051,33 @@
 <h1 id="vue">vue学习笔记<a class="headerlink" href="#vue" title="Permanent link">&para;</a></h1>
 <h2 id="vue_1">一、vue基础<a class="headerlink" href="#vue_1" title="Permanent link">&para;</a></h2>
 <h3 id="1">1. 基础语法<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        // 访问变量，不需要通过value属性访问
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">prop1</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">prop2</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;ts&quot;</span><span class="p">&gt;</span>
+<span class="c1">// 变量</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">prop1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="s1">&#39;value1&#39;</span><span class="p">)</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">prop2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="s1">&#39;value2&#39;</span><span class="p">)</span>
+<span class="c1">// 修改变量(通过value属性修改)</span>
+<span class="nx">prop1</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;new value1&#39;</span>
+<span class="c1">// 生命周期</span>
+<span class="nx">OnMounted</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;component mounted&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="c1">// 通过h函数创建元素</span>
+<span class="nx">h</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="s1">&#39;hello vue&#39;</span><span class="p">)</span>
+<span class="c1">// 渲染元素到页面</span>
+<span class="nx">mount</span><span class="p">(</span><span class="nx">h</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="s1">&#39;hello vue&#39;</span><span class="p">),</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
 <h3 id="2">2. 组件<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <h3 id="3">3. 缓存<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>pinia缓存
+localStorage缓存</p>
 <h3 id="4">4. 生命周期<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <h2 id="_1">二、通信机制<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="1_1">1. 父子组件通信<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
