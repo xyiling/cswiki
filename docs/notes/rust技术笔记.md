@@ -58,6 +58,28 @@ const RESULT: u32 = square(2);
 println!("RESULT = {}", RESULT);
 ```
 
+### 枚举常量
+
+枚举基础语法如下
+```rust
+enum MyError {
+    NetworkTimeout,
+    DatabaseClick,
+}
+```
+
+通过MyError::NetworkTimeout等枚举常量，可以创建或访问对应的错误实例。
+```rust
+let res: Result<i32, MyError> = Err(MyError::NetworkTimeout);
+res.unwrap_or_else(|e| { // 这里的 e 是 MyError 枚举
+    match e {
+        MyError::NetworkTimeout => println!("网络超时"),
+        MyError::DatabaseClick => println!("数据库故障"),
+    }
+    -1
+});
+```
+
 ### 文件读写
 ```rust
 // 文件操作往往都伴随错误产生，因此rust对文件的操作结果都使用Result<T>表示
@@ -184,7 +206,27 @@ fn show_version() {
 show_version()
 ```
 
+#### 使用wait等待子进程结束
+```rust
+// 等待子进程完成
+use std::process::Command;
+
+fn test_wait() {
+  // 使用Command::new()创建子进程，并通过arg传递参数
+  // 使用spawn
+  let mut child = Command::new("sleep").arg("5").spawn().unwrap();
+  let _result = child.wait().unwrap();
+
+  println!("子进程运行结束");
+}
+
+test_wait()
+```
+
 ### 管道
+
+管道配合子进程，实现进程之间的通信和数据交换  
+这个实例使用wc命令计算字符数，通过管道将文本传递给wc进程，直接得出结果
 ```rust
 use std::io::prelude::*;
 use std::process::{Command, Stdio};
@@ -214,3 +256,37 @@ fn pipe_test() {
 
 pipe_test()
 ```
+
+### unwrap语法
+在 Rust 中，unwrap() 是一个方法。它可以被调用在包含潜在错误或缺失值的两种主要类型上：Result 和 Option。
+
+1. 作用于 Result<T, E>  
+  如果成功（是 Ok）：它会返回剥去外壳后的真实数据，类型为 T。  
+  如果失败（是 Err）：程序会直接引发 panic（崩溃）并退出。
+2. 作用于 Option<T>  
+  如果有值（是 Some）：它会返回剥去外壳后的真实数据，类型为 T。  
+  如果为空（是 None）：程序同样会直接引发 panic（崩溃）并退出。 
+
+使用unwrap_or_else()方法，可以在Option为空时提供一个默认值
+```rust
+let s = Some("hello");
+let s_or_default = s.unwrap_or_else(|| "default");
+```
+
+对Result的Err也支持unwrap_or_else()方法
+```rust
+let error_result: Result<i32, &str> = Err("无效的输入");
+// 如果是 Err，不会崩溃，而是执行闭包返回 18
+let age = error_result.unwrap_or_else(|err| {
+    println!("发生错误: {}", err);
+    18 
+});
+assert_eq!(age, 18); // 程序正常运行
+```
+
+> unwrap_or_else(|err| 1+1)与unwrap_or(1+1)的区别  
+> 前者只在错误时执行1+1，成功时返回Ok的值，也就是懒加载的一种  
+> 后者会直接执行1+1，错误时返回1+1的值
+
+!!!note
+    |err|是Result<String, &str\>的&str实例，可以访问str.to_string()等方法，如果错误类型是其他类型，比如自定义的结构体，或者是u8或其他，都可以访问对应类型的方法。
