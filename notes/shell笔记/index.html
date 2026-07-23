@@ -1886,6 +1886,63 @@ sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/hel
 grep<span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="w"> </span>test.txt
 </code></pre></div></p>
 </li>
+<li>
+<p>磁盘命令</p>
+<p>使用<code>du</code>命令查看文件夹占用情况
+<div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>du<span class="w"> </span>-sh<span class="w"> </span>dirname
+<span class="c1"># du -sh ~</span>
+<span class="c1"># 11G   /root</span>
+</code></pre></div></p>
+<p>使用<code>df</code>查看磁盘使用情况
+<div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>df<span class="w"> </span>-h<span class="w"> </span>/
+<span class="c1"># Filesystem      Size  Used Avail Use% Mounted on</span>
+<span class="c1"># /dev/vda3        40G   21G   17G  55% /</span>
+</code></pre></div></p>
+<p>使用<code>lsblk</code>命令查看磁盘挂载情况
+<div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>lsblk
+<span class="c1"># NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS</span>
+<span class="c1"># vda    253:0    0   40G  0 disk </span>
+<span class="c1"># ├─vda1 253:1    0    1M  0 part </span>
+<span class="c1"># ├─vda2 253:2    0  200M  0 part /boot/efi</span>
+<span class="c1"># └─vda3 253:3    0 39.8G  0 part /</span>
+</code></pre></div></p>
+<p>使用<code>fdisk -l</code>查看不同分区的文件系统
+<div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>fdisk<span class="w"> </span>-l
+<span class="c1"># Disk /dev/vda: 40 GiB, 42949672960 bytes, 83886080 sectors</span>
+<span class="c1"># Units: sectors of 1 * 512 = 512 bytes</span>
+<span class="c1"># Sector size (logical/physical): 512 bytes / 512 bytes</span>
+<span class="c1"># I/O size (minimum/optimal): 512 bytes / 512 bytes</span>
+<span class="c1"># Disklabel type: gpt</span>
+<span class="c1"># Disk identifier: A1EA1783-7D1D-4C3C-84B6-BF7D4AF86695</span>
+
+<span class="c1"># Device      Start      End  Sectors  Size Type</span>
+<span class="c1"># /dev/vda1    2048     4095     2048    1M BIOS boot</span>
+<span class="c1"># /dev/vda2    4096   413695   409600  200M EFI System</span>
+<span class="c1"># /dev/vda3  413696 83886046 83472351 39.8G Linux filesystem</span>
+</code></pre></div></p>
+<p>使用<code>cfdisk /dev/vda</code>手动分区或扩容
+<div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span>cfdisk<span class="w"> </span>/dev/vda
+<span class="c1">#                                Disk: /dev/vda</span>
+<span class="c1">#            Size: 40 GiB, 42949672960 bytes, 83886080 sectors</span>
+<span class="c1">#        Label: gpt, identifier: A1EA1783-7D1D-4C3C-84B6-BF7D4AF86695</span>
+
+<span class="c1"># Device       Start          End                 Sectors         Size Type</span>
+<span class="c1"># /dev/vda1    2048           4095                2048            1M BIOS boot                      </span>
+<span class="c1"># /dev/vda2    4096           413695              409600          200M EFI System</span>
+<span class="c1"># /dev/vda3    413696         83886046            83472351        39.8G Linux filesystem</span>
+
+
+<span class="c1"># ┌─────────────────────────────────────────────────────────────────────────────────────┐</span>
+<span class="c1"># │Partition UUID: CC43A9AA-558B-4F53-9BBD-7205EC26CC28                                 │</span>
+<span class="c1"># │Partition type: BIOS boot (21686148-6449-6E6F-744E-656564454649)                     │</span>
+<span class="c1"># └─────────────────────────────────────────────────────────────────────────────────────┘</span>
+<span class="c1">#   [ Delete ]  [ Resize ]  [  Quit  ]  [  Type  ]  [  Help  ]  [  Write ]  [  Dump  ]</span>
+
+<span class="c1">#   Device is currently in use, repartitioning is probably a bad idea.</span>
+<span class="c1">#          Quit program without writing changes</span>
+</code></pre></div></p>
+</li>
+<li></li>
 </ol>
 
 
