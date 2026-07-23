@@ -9,6 +9,7 @@ theme:
   features:
     - navigation.tabs # 顶部标签页导航
     - navigation.sections # 自动提取标题生成章节锚点
+    - content.code.copy # 代码块复制按钮
   palette:
     - scheme: default # 浅色模式
       toggle:
