@@ -183,3 +183,70 @@ done
     # 读取`test.txt`文件，搜索所有包含"hello"的行
     grep "hello" test.txt
     ```
+
+6. 磁盘命令
+
+    使用`du`命令查看文件夹占用情况
+    ```bash
+    > du -sh dirname
+    # du -sh ~
+    # 11G	/root
+    ```
+
+    使用`df`查看磁盘使用情况
+    ```bash
+    > df -h /
+    # Filesystem      Size  Used Avail Use% Mounted on
+    # /dev/vda3        40G   21G   17G  55% /
+    ```
+
+    使用`lsblk`命令查看磁盘挂载情况
+    ```bash
+    > lsblk
+    # NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+    # vda    253:0    0   40G  0 disk 
+    # ├─vda1 253:1    0    1M  0 part 
+    # ├─vda2 253:2    0  200M  0 part /boot/efi
+    # └─vda3 253:3    0 39.8G  0 part /
+    ```
+
+    使用`fdisk -l`查看不同分区的文件系统
+    ```bash
+    > fdisk -l
+    # Disk /dev/vda: 40 GiB, 42949672960 bytes, 83886080 sectors
+    # Units: sectors of 1 * 512 = 512 bytes
+    # Sector size (logical/physical): 512 bytes / 512 bytes
+    # I/O size (minimum/optimal): 512 bytes / 512 bytes
+    # Disklabel type: gpt
+    # Disk identifier: A1EA1783-7D1D-4C3C-84B6-BF7D4AF86695
+
+    # Device      Start      End  Sectors  Size Type
+    # /dev/vda1    2048     4095     2048    1M BIOS boot
+    # /dev/vda2    4096   413695   409600  200M EFI System
+    # /dev/vda3  413696 83886046 83472351 39.8G Linux filesystem
+    ```
+
+    使用`cfdisk /dev/vda`手动分区或扩容
+    ```bash
+    > cfdisk /dev/vda
+    #                                Disk: /dev/vda
+    #            Size: 40 GiB, 42949672960 bytes, 83886080 sectors
+    #        Label: gpt, identifier: A1EA1783-7D1D-4C3C-84B6-BF7D4AF86695
+
+    # Device       Start          End                 Sectors         Size Type
+    # /dev/vda1    2048           4095                2048            1M BIOS boot                      
+    # /dev/vda2    4096           413695              409600          200M EFI System
+    # /dev/vda3    413696         83886046            83472351        39.8G Linux filesystem
+
+
+    # ┌─────────────────────────────────────────────────────────────────────────────────────┐
+    # │Partition UUID: CC43A9AA-558B-4F53-9BBD-7205EC26CC28                                 │
+    # │Partition type: BIOS boot (21686148-6449-6E6F-744E-656564454649)                     │
+    # └─────────────────────────────────────────────────────────────────────────────────────┘
+    #   [ Delete ]  [ Resize ]  [  Quit  ]  [  Type  ]  [  Help  ]  [  Write ]  [  Dump  ]
+
+    #   Device is currently in use, repartitioning is probably a bad idea.
+    #          Quit program without writing changes
+    ```
+
+7. 
